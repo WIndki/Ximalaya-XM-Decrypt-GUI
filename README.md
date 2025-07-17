@@ -8,7 +8,7 @@
 
 ## 项目简介
 
-这是一个用于解密喜马拉雅音频文件（.xm 格式）的现代化桌面应用程序，使用 **Electron + TypeScript + React + Vite** 技术栈构建，完全重构自![Ximalaya-XM-Decrypt](https://github.com/Diaoxiaozhang/Ximalaya-XM-Decrypt) 版本。本项目提供了一个用户友好的图形界面，支持批量解密和实时进度反馈。
+这是一个用于解密喜马拉雅音频文件（.xm 格式）的现代化桌面应用程序，使用 **Electron + TypeScript + React + Vite** 技术栈构建，完全重构自 [![Github](https://img.shields.io/badge/Github-Diaoxiaozhang/Ximalaya--XM--Decrypt-blue?style=flat-square&logo=github)](https://github.com/Diaoxiaozhang/Ximalaya-XM-Decrypt) 版本。本项目提供了一个用户友好的图形界面，支持批量解密和实时进度反馈。
 
 ## ✨ 功能特性
 
