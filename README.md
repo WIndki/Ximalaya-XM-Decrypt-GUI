@@ -60,7 +60,7 @@
 
 1. **克隆项目**
 ```bash
-git clone <repository-url>
+git clone https://github.com/WIndki/Ximalaya-XM-Decrypt-GUI.git
 cd Ximalaya-XM-Decrypt-GUI
 ```
 
