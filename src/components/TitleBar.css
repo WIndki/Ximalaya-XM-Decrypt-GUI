@@ -1,0 +1,140 @@
+/* 自定义标题栏样式 */
+.title-bar {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: var(--bg-secondary, #16213e);
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
+  user-select: none;
+  -webkit-app-region: drag;
+  position: relative;
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+}
+
+.title-bar-left {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+}
+
+.app-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
+.app-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.app-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary, #e1e5e9);
+  white-space: nowrap;
+}
+
+.title-bar-center {
+  flex: 1;
+  height: 100%;
+  -webkit-app-region: drag;
+  min-width: 0;
+}
+
+.title-bar-right {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+}
+
+.title-bar-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: var(--text-secondary, #9ca3af);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  -webkit-app-region: no-drag;
+  position: relative;
+}
+
+.title-bar-button:hover {
+  background: var(--bg-hover, rgba(255, 255, 255, 0.1));
+  color: var(--text-primary, #e1e5e9);
+}
+
+.title-bar-button.minimize:hover {
+  background: rgba(255, 193, 7, 0.15);
+  color: #ffc107;
+}
+
+.title-bar-button.maximize:hover {
+  background: rgba(40, 167, 69, 0.15);
+  color: #28a745;
+}
+
+.title-bar-button.close:hover {
+  background: rgba(220, 53, 69, 0.8);
+  color: white;
+}
+
+.title-bar-button:active {
+  opacity: 0.8;
+  transform: scale(0.95);
+}
+
+/* 图标样式优化 */
+.title-bar-button svg {
+  transition: all 0.2s ease;
+}
+
+.title-bar-button:hover svg {
+  transform: scale(1.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 12px;
+  }
+  
+  .title-bar-button {
+    width: 40px;
+  }
+}
+
+/* 针对不同操作系统的适配 */
+.title-bar.mac {
+  padding-left: 70px; /* 为macOS的红绿灯按钮预留空间 */
+}
+
+.title-bar.mac .title-bar-right {
+  display: none; /* macOS使用系统按钮 */
+}
+
+/* 暗色主题适配 */
+.title-bar {
+  --bg-secondary: #1a1a2e;
+  --bg-hover: rgba(255, 255, 255, 0.1);
+  --text-primary: #e1e5e9;
+  --text-secondary: #9ca3af;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 高DPI屏幕优化 */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .title-bar-button svg {
+    transform: scale(0.8);
+  }
+}

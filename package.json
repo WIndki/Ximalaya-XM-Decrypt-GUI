@@ -1,0 +1,93 @@
+{
+  "name": "ximalaya-decrypt-electron",
+  "version": "1.0.0",
+  "description": "Ximalaya Audio Decryption Tool - Electron + TypeScript + Vite",
+  "main": "dist/electron/main.js",
+  "homepage": "./",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:vite\" \"npm:dev:electron\"",
+    "dev:vite": "vite",
+    "dev:electron": "npm run build:electron && electron .",
+    "build": "npm run build:vite && npm run build:electron",
+    "build:vite": "vite build",
+    "build:electron": "tsc -p electron/tsconfig.json",
+    "pack": "electron-builder",
+    "dist": "npm run build && npm run pack",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.ximalaya.decrypt",
+    "productName": "Ximalaya Decrypt Tool",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "dist/**/*",
+      "public/icon.png",
+      "public/icon.svg"
+    ],
+    "extraResources": [
+      {
+        "from": "electron/services/xm_encryptor.wasm",
+        "to": "xm_encryptor.wasm"
+      },
+      {
+        "from": "public/icon.png",
+        "to": "icon.png"
+      },
+      {
+        "from": "public/icon.svg", 
+        "to": "icon.svg"
+      }
+    ],
+    "mac": {
+      "icon": "public/icon.png",
+      "category": "public.app-category.utilities"
+    },
+    "win": {
+      "icon": "public/icon.png",
+      "target": "nsis"
+    },
+    "linux": {
+      "icon": "public/icon.png",
+      "target": "AppImage"
+    }
+  },
+  "keywords": [
+    "ximalaya",
+    "decrypt",
+    "audio",
+    "electron",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.0.14",
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.2.0",
+    "electron": "^37.2.3",
+    "electron-builder": "^26.0.12",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5"
+  },
+  "dependencies": {
+    "@heroui/react": "^2.8.1",
+    "@tailwindcss/postcss": "^4.1.11",
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "file-type": "^21.0.0",
+    "framer-motion": "^12.23.6",
+    "lucide-react": "^0.525.0",
+    "music-metadata": "^11.7.0",
+    "node-id3": "^0.2.9",
+    "postcss": "^8.5.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "tailwindcss": "^4.1.11",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}
